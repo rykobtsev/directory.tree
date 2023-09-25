@@ -45,25 +45,13 @@ class MainController extends AppController
         $id = $this->postParams['id'] ?? $this->getParams['id'] ?? null;
         $name = $this->postParams['name'] ?? $this->getParams['name'] ?? 'Root';
 
-        if (isset($id) && is_numeric($id) && $id != 0) {
+        if (isset($id) && is_numeric($id)) {
             if (!$model->renameBranch($id, $name)) {
                 $this->error = "Не удалось переименовать запись (id: $id, name: $name)";
             } else {
                 if ($this->isAjax) {
                     $this->set([
                         'id' => $id,
-                        'name' => $name
-                    ]);
-                }
-            }
-        } elseif (isset($id) && $id == 0) {
-            $response = $model->addBranch($id, $name);
-            if (empty($response['id'])) {
-                $this->error = "Не удалось добавить запись (pid: $id, name: $name)";
-            } else {
-                if ($this->isAjax) {
-                    $this->set([
-                        'id' => $response['id'],
                         'name' => $name
                     ]);
                 }

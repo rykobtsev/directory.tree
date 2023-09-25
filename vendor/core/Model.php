@@ -15,16 +15,6 @@ abstract class Model
         $this->pdo = Db::instance();
     }
 
-    public function execute($sql, $args = [])
-    {
-        return $this->pdo->execute($sql);
-    }
-
-    public function query($sql, $args = [])
-    {
-        return $this->pdo->execute($sql);
-    }
-
     public function findAll()
     {
         $sql = "SELECT * FROM {$this->table}";

@@ -1,3 +1,9 @@
+body {
+  background-image: url("../image/web1.png");
+  background-repeat: no-repeat;
+  background-size: 61% auto;
+}
+
 .treeview-animated
   .treeview-animated-list
   .treeview-animated-items

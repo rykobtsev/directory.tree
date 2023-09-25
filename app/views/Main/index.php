@@ -23,7 +23,7 @@
                                         <span id="0"><i class="far fa-folder ic-w me-2"></i>Root</span>
                                     </div>
                                     <div class="control_panel">
-                                        <a id="0" href="/main/edit/?rename=0" class="add_field_modal fa fa-edit" title="Переименовать"></a>
+                                        <a id="0" href="/main/edit/?rename=0" class="rename_field_modal fa fa-edit" title="Переименовать"></a>
                                         ||
                                         <a id="0" href="/main/edit/?add=0" class="add_field_modal add_field fa fa-add" title="Добавить"></a>
                                     </div>

@@ -18,8 +18,10 @@ class Main extends Model
 
     public function renameBranch($id, $name)
     {
+        $response = false;
+
         $data = [
-            ':id' => $id,
+            ':id' => empty($id) ? 1 : $id,
             ':name' => $name
         ];
 
@@ -28,7 +30,13 @@ class Main extends Model
                     name = :name 
                 WHERE id = :id";
 
-        return $this->pdo->execute($sql, $data);
+        if (!$response = $this->pdo->execute($sql, $data)) {
+            $sql = "INSERT INTO {$this->table} (id, pid, name) VALUES (:id, 0, :name)
+                    ON CONFLICT (id) DO NOTHING";
+            $response = $this->pdo->execute($sql, $data);
+        }
+
+        return $response;
     }
 
     public function addBranch($pid, $name)
