@@ -40,4 +40,4 @@
     </section>
 </div>
 
-<script type="text/javascript" src="/Public/js/main.js"></script>
+<script type="text/javascript" src="/public/js/main.js"></script>
